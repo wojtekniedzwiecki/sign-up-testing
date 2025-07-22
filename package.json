@@ -1,0 +1,18 @@
+{
+  "name": "ninox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "mailslurp-client": "^15.24.1"
+  }
+}
