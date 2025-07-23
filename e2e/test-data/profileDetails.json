@@ -1,0 +1,15 @@
+{
+  "profile1": {
+    "fullName": "ninox user",
+    "company": "ninox",
+    "employees": "10 - 49",
+    "country": "Austria",
+    "phone": "1234567890"
+  },
+  "validCredentials": {
+    "emailAddress": "ninox@ninox.de",
+    "password": "Val1dPa$word",
+    "email": "test",
+    "domain": "ninox.de"
+  }
+}

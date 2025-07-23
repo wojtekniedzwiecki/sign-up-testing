@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
@@ -11,14 +12,37 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+// Read ENV variable passed at runtime
+dotenv.config(); // this must come first
+
+
+const envTarget = process.env.ENV || 'staging';
+
+const baseURLs: Record<string, string> = {
+  staging: process.env.PLAYWRIGHT_TEST_URL_STAGING!,
+  prod: process.env.PLAYWRIGHT_TEST_URL_PROD!,
+};
+
+const selectedBaseURL = baseURLs[envTarget];
+
+if (!selectedBaseURL) {
+  throw new Error(`Unknown ENV value: ${envTarget}`);
+}
+
+
 export default defineConfig({
   testDir: './e2e',
   /* Run tests in files in parallel */
+  timeout: 30000,
+  expect: {
+    timeout: 30000, // Applies to all expect() calls
+  },
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env['CI'] ? 2 : 2,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -27,7 +51,8 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
-    baseURL: process.env['PLAYWRIGHT_TEST_URL'] ?? 'https://q-www.ninox.com',
+    // baseURL: process.env['PLAYWRIGHT_TEST_URL'] ?? 'https://localhost:3000',
+    baseURL: selectedBaseURL,
 
     //  baseURL: 'https://q-www.ninox.com',
 
@@ -50,18 +75,6 @@ export default defineConfig({
     // {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
-    // },
-    // {
-    //   name: 'staging',
-    //   use: {
-    //     baseURL: 'https://q-www.ninox.com/create-account',
-    //   },
-    // },
-    // {
-    //   name: 'prod',
-    //   use: {
-    //     baseURL: 'https://ninox.com/en/create-account',
-    //   },
     // },
 
     /* Test against mobile viewports. */

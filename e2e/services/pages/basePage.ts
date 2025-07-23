@@ -1,43 +1,25 @@
 import { Locator, Page } from '@playwright/test';
+import { delay } from "../../helpers/helpers";
 
 export class BasePage {
-  readonly page: Page;
+    readonly page: Page;
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+    constructor(page: Page) {
+        this.page = page;
+    }
 
-//   public getTableRow(): Locator {
-//     return this.page.locator('tr[role="row"].cdk-row');
-//   }
+    public getAllowCookieButton(): Locator {
+        return this.page.locator('button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll');
+    }
 
-//   public async findNumberOfRowByText(text: string): Promise<number> {
-//     const rows = await this.page.locator('tr[role="row"].cdk-row'); // Select all rows
-//     let rowIndex = -1;
+    public getErrorMessage(): Locator {
+        return this.page.locator('.ErrorMessage-eQTUTc');
+    }
 
-//     for (let i = 0; i < await rows.count(); i++) {
-//       const row = rows.nth(i);
-//       if ((await row.innerText()).includes(text)) {
-//         rowIndex = i;
-//         break;
-//       }
-//     }
-//     return rowIndex;
-//   }
-
-//   public findAllRowsByText(name: string): Locator {
-//     return this.getTableRow().filter({ hasText: name });
-//   }
-
-//   public async selectFromDropdown(page: Page, value: string): Promise<void> {
-//     await page.click(`mat-option >> text="${value}"`);
-//   }
-
-//   public getDialog(): Locator {
-//     return this.page.locator('mat-dialog-container.mdc-dialog--open');
-//   }
-
-//   public getSaveButton(): Locator {
-//     return this.page.locator('button').getByText('Save');
-//   }
+    public async handleCookieBanner(page: Page) {
+        await delay(500);
+        if (await this.getAllowCookieButton().isVisible()) {
+            this.getAllowCookieButton().click();
+        }
+    }
 }
