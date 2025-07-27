@@ -8,14 +8,19 @@
 npm install
 ```
 
-### 2. Create the .env.keys file in the root directory 
+### 2. Rename env file to .env
+```bash
+mv env .env
+```
+
+### 3. Create the .env.keys file in the root directory 
 ```bash
 echo "DOTENV_PRIVATE_KEY=your-dotenv-key-here" > .env.keys
 ```
 your-dotenv-key-here will be sent seperately via password manager app, please copy it from there
 
 
-### 3. Decrypt .env file
+### 4. Decrypt .env file
 ```bash
  dotenvx decrypt
 ```
@@ -30,13 +35,13 @@ your-dotenv-key-here will be sent seperately via password manager app, please co
  dotenvx decrypt
 ```
 
-### 4. Check if .env file has been decrypted
+### 5. Check if .env file has been decrypted
  should contain 3 variables with decrypted values, withour `encrypted:` keyword
  - API_KEY
  - PLAYWRIGHT_TEST_URL_STAGING
  - PLAYWRIGHT_TEST_URL_PROD
 
-### 5. Run tests
+### 6. Run tests
 For staging env:
 ```bash
  npm run test:staging

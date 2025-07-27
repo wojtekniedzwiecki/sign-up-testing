@@ -1,0 +1,10 @@
+#/-------------------[DOTENV_PUBLIC_KEY]--------------------/
+#/            public-key encryption for .env files          /
+#/       [how it works](https://dotenvx.com/encryption)     /
+#/----------------------------------------------------------/
+DOTENV_PUBLIC_KEY="03820ce7e2327725b588644e93a46091be5218eaa57c3b447d87cda219e21212d1"
+
+# .env
+API_KEY='encrypted:BOhaR4Yv2i4CRq3SI/cVEHuHLHEh59y1FlZ7OkRPJRXRW2WJPSDXImVAWXiWUX3vhYGt6zXbN3uLwIB5JO5PCgpj/56JqfyCLZxdISr+aFkaNve2VwYA+xXRQIf9nmvISNU+zDDLH5Qt4S8fz7p0SigK69ikm+QmRzoFFSErgXHT53tg1CQR9WhhM+iAvMqbRwyZeZMCqGzpI4bVo9TFzoI='
+PLAYWRIGHT_TEST_URL_STAGING=encrypted:BPg1DFzJOaaOpK8Fu601plO0qvGNkjYjR99Bc5OsMyTkGCIsiuF75h9Jicx5vEsfUoUivo+YroqJOCjDZVofA9CByawTWGzLBpXxFYrP/5CIuNIfY+x9FAyJXmvgILiuN7H6BpzaPCnvrKaCnWBozVIf8AR6Pl6Y
+PLAYWRIGHT_TEST_URL_PROD=encrypted:BNdtTdwzb/mUScpH22W9qNhqPmtFeJSZoyVZCXRu7PrjNIq3+grUxsAYhDj3vk4Yatge6uHPrdjE5RUwszpJNjXRLyr3p8EMh15um58hUF2neFJmfZSPzmHHwOGHmFUnc8ZpV7bCsAoADYYqmKr8AH/PHyid7g==
