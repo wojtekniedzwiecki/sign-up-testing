@@ -85,7 +85,7 @@ test.describe('Create account tests', () => {
   });
 
 
-  test('Should get error message if user want to use email of already existing account', async ({
+  test('Should get error message if user want to use email of already existing account  - @smoke', async ({
     page,
   }) => {
     const uniqueValidEmail = generateRandomEmail();
@@ -109,7 +109,7 @@ test.describe('Create account tests', () => {
   });
 
 
-  test.skip('Should send email asking for confirmation after creating new account', async ({
+  test.skip('Should send email asking for confirmation after creating new account - @smoke', async ({
     page,
   }) => {
     const apiKey = process.env.API_KEY;
@@ -169,7 +169,7 @@ test.describe('Create account tests', () => {
   });
 
 
-  test('Should get redirected to My Teams page when clicking Log In link for already logged in user', async ({
+  test('Should get redirected to My Teams page when clicking Log In link for already logged in user - @smoke', async ({
     page,
   }) => {
 

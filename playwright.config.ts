@@ -32,7 +32,7 @@ if (!selectedBaseURL) {
 
 
 export default defineConfig({
-  testDir: './e2e',
+  testDir: './',
   /* Run tests in files in parallel */
   timeout: 30000,
   expect: {

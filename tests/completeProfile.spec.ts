@@ -15,7 +15,6 @@ test.describe('Complete profile tests', () => {
   let completeProfilePage: CompleteProfilePage;
   let myTeamsPage: MyTeamsPage;
 
-  const validCredentials = credentialsData.validCredentials;
 
   test.beforeEach(async ({ page }) => {
     createAccountPage = new CreateAccountPage(page);
@@ -44,7 +43,7 @@ test.describe('Complete profile tests', () => {
     }
   });
 
-  test('Should save profile details when user provides all profile details', async ({
+  test('Should save profile details when user provides all profile details - @smoke', async ({
     page,
   }) => {
     const profileDetails = profileData.profile1;

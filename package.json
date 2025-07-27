@@ -2,7 +2,10 @@
   "name": "ninox",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:staging": "ENV=staging npx playwright test",
+    "test:prod": "ENV=prod npx playwright test --grep '@smoke'"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,7 +15,9 @@
     "@types/node": "^24.1.0"
   },
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.48.3",
     "dotenv": "^17.2.0",
+    "dotenv-vault": "^1.27.0",
     "mailslurp-client": "^15.24.1"
   }
 }

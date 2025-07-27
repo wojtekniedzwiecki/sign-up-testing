@@ -6,7 +6,7 @@ import { CompleteProfilePage } from '../services/pages/completeProfilePage';
 import { MyTeamsPage } from '../services/pages/myTeamsPage';
 import MailSlurp from "mailslurp-client";
 import { SignInPage } from '../services/pages/signInPage';
-import { generateRandomEmail, generateStrongPassword } from "../helpers/helpers";
+import { delay, generateRandomEmail, generateStrongPassword } from "../helpers/helpers";
 import { ForgotPasswordPage } from '../services/pages/forgotPasswordPage';
 
 dotenv.config();
@@ -33,7 +33,7 @@ test.describe('Log in tests', () => {
     await expect(await signInPage.getErrorMessage()).toContainText('Email or password - something is not right.');
   });
 
-  test('Should be redirected to My Teams page afer succesfull log in', async ({
+  test('Should be redirected to My Teams page afer succesfull log in - @smoke', async ({
     page,
   }) => {
     let createAccountPage = new CreateAccountPage(page);
@@ -56,6 +56,7 @@ test.describe('Log in tests', () => {
     await signInPage.getPasswordInput().fill(uniqueStrongPassword);
     await signInPage.getLogInButton().click();
 
+    await delay(2000);
     await signInPage.handleCookieBanner(page);
 
     await expect(myTeamsPage.getWelcomeDialog()).toBeVisible();
@@ -100,7 +101,7 @@ test.describe('Log in tests', () => {
   });
 
 
-  test.skip('Should send email to reset the password for registered email', async ({
+  test.skip('Should send email to reset the password for registered email - @smoke', async ({
     page,
   }) => {
 
@@ -134,7 +135,7 @@ test.describe('Log in tests', () => {
     expect(email.body).toContain('A password reset has been requested for your email');
   });
   
-  test.skip('Should not send email to reset the password for non-registered email', async ({
+  test.skip('Should not send email to reset the password for non-registered email - @smoke', async ({
     page,
   }) => {
 
